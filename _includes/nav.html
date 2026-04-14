@@ -1,4 +1,5 @@
-<nav
+<div
+    class="container"
     style="
         display: flex;
         justify-content: space-between;
@@ -8,13 +9,15 @@
         margin-bottom: 20px;
     "
 >
-    <a
-        class="nes-btn is-primary"
-        href="{{ site.baseurl }}/"
-        style="margin-right: 10px"
-        >{{ site.title }}</a
-    >
-    <div>
+    <div class="nav-brand">
+        <a
+            href="{{ site.baseurl }}/"
+            style="text-decoration: none; color: inherit"
+        >
+            <h1>Chocobone.dev</h1>
+        </a>
         <a class="nes-btn" href="{{ site.baseurl }}/about">About</a>
     </div>
-</nav>
+
+    {% include social-buttons.html %}
+</div>
