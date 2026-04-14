@@ -18,19 +18,29 @@
         href="data:image/png;base64,iVBORw0KGgo="
     />
 
+    <!-- Fonts: English (Headings/Content), Korean (DungGeunMo), Japanese (DotGothic16 as pixel fallback) -->
     <link
-        href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DotGothic16&display=swap"
         rel="stylesheet"
     />
+    <link href="https://fonts.cdnfonts.com/css/kongtext" rel="stylesheet" />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/duunggeunmo/css/duunggeunmo.css"
+    />
+
     <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet" />
     <style>
+        /* Global font application via SCSS will handle specific overrides */
         html,
         body,
         pre,
         code,
         kbd,
         samp {
-            font-family: "Press Start 2P", cursive;
+            font-family:
+                "Kongtext", "DungGeunMo", "DotGothic16", "Press Start 2P",
+                cursive !important;
         }
     </style>
 
