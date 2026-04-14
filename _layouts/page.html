@@ -2,6 +2,12 @@
 layout: default
 ---
 
-<content>
-  {{ content }}
-</content>
+<article>
+    {% if page.title %}
+    <header style="margin-bottom: 2rem">
+        <h1>{{ page.title }}</h1>
+    </header>
+    {% endif %}
+
+    <div class="content">{{ content }}</div>
+</article>

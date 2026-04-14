@@ -1,146 +1,217 @@
-$color-primary: hsl(0, 0%, 10%);
-$color-text: hsl(0, 0%, 20%);
-$color-subtext: hsl(0, 0%, 30%);
-$color-border: hsl(0, 0%, 85%);
-$color-box-background: mix($color-primary, white, 4%);
-$border-radius: 4px;
-$font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
-  sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+/* Typography */
+$font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-serif: "Georgia", "Times New Roman", serif;
+
+/* Colors - Light Mode */
+$bg-light: #ffffff;
+$text-light: #111111;
+$subtext-light: #666666;
+$link-light: #111111;
+$border-light: #eeeeee;
+
+/* Colors - Dark Mode */
+$bg-dark: #000000;
+$text-dark: #eeeeee;
+$subtext-dark: #999999;
+$link-dark: #eeeeee;
+$border-dark: #222222;
 
 body {
-  box-sizing: content-box;
   font-family: $font-family;
-  margin: 0 auto;
-  line-height: 1.7;
-  padding: 4vh 6vw;
-  overflow-x: hidden;
-  color: $color-text;
-  font-size: 1rem;
-  max-width: 63em;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: $bg-light;
+  color: $text-light;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
 
-  @media (min-width: 820px) {
-    font-size: 1.2rem;
+  @media (prefers-color-scheme: dark) {
+    background-color: $bg-dark;
+    color: $text-dark;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 16px;
   }
 }
 
-time {
-  display: block;
-  color: $color-subtext;
-  margin: 0.5em 0 1em;
+.wrapper {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+
+  @media (max-width: 600px) {
+    padding: 2rem 1.5rem;
+  }
 }
 
+/* Header & Nav */
+header {
+  margin-bottom: 4rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2rem;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+
+    &.site-title {
+        font-size: 1.2rem;
+    }
+
+    &.nav-link {
+        margin-left: 1.5rem;
+        font-weight: 400;
+        color: $subtext-light;
+        @media (prefers-color-scheme: dark) {
+            color: $subtext-dark;
+        }
+    }
+  }
+}
+
+/* Content */
+h1, h2, h3, h4, h5, h6 {
+  color: inherit;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+a {
+  color: $link-light;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s;
+
+  @media (prefers-color-scheme: dark) {
+    color: $link-dark;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+/* Articles / Notes List */
+.note-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+
+  li {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+
+    .note-date {
+      font-size: 0.9rem;
+      color: $subtext-light;
+      margin-bottom: 0.2rem;
+
+      @media (prefers-color-scheme: dark) {
+        color: $subtext-dark;
+      }
+    }
+
+    a {
+      font-size: 1.2rem;
+      text-decoration: none;
+      font-weight: 500;
+
+      &:hover {
+          text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* Footer */
 footer {
-  margin: 2em 0;
-  font-size: 0.8em;
-  color: mix($color-text, white, 80%);
-  padding-top: 1em;
+  margin-top: 6rem;
+  padding-top: 2rem;
+  border-top: 1px solid $border-light;
+  font-size: 0.9rem;
+  color: $subtext-light;
+
+  @media (prefers-color-scheme: dark) {
+    border-top-color: $border-dark;
+    color: $subtext-dark;
+  }
+}
+
+/* Misc */
+hr {
+  border: 0;
+  border-top: 1px solid $border-light;
+  margin: 3rem 0;
+
+  @media (prefers-color-scheme: dark) {
+    border-top-color: $border-dark;
+  }
+}
+
+blockquote {
+  margin: 2rem 0;
+  padding-left: 1.5rem;
+  border-left: 3px solid $border-light;
+  font-style: italic;
+  color: $subtext-light;
+
+  @media (prefers-color-scheme: dark) {
+    border-left-color: $border-dark;
+    color: $subtext-dark;
+  }
 }
 
 img {
   max-width: 100%;
-  display: block;
-  margin: 0 auto;
-  max-height: 75vh;
-  border-radius: $border-radius;
-}
-
-blockquote {
-  padding: 1.5em;
-  margin: 0;
-  font-size: 0.88em;
-  background: $color-box-background;
-  border-radius: $border-radius;
-
-  p {
-    margin: 0;
-  }
-}
-
-hr {
-  width: 100%;
-  border: 0;
-  height: 1px;
-  margin: 1.5em 0;
-  background: $color-border;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.3;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-a {
-  transition: background 300ms;
-  padding: 0 0.1em;
-  text-decoration: none;
-  border-bottom: 1px solid $color-border;
-  color: $color-primary;
-  &:hover {
-    color: black !important;
-    background: #fffaf1;
-  }
-  &:after {
-    position: relative;
-    top: -0.5em;
-    font-size: 0.7em;
-    content: "↗";
-    color: #aaaaaa;
-  }
-  &.internal-link:after,
-  &.footnote:after,
-  &.reversefootnote:after {
-    content: "";
-  }
-}
-
-*:focus {
-  background: #ffe8bc !important;
-  color: black !important;
-}
-
-nav {
-  margin: 1em 0 3em;
-}
-
-#notes-entry-container {
-  display: grid;
-  grid-gap: 2em;
-  grid-template-areas:
-    "content"
-    "side";
-
-  @media (min-width: 700px) {
-    grid-template-columns: 3fr 1fr;
-    grid-template-areas: "content side";
-  }
-}
-
-.backlink-box {
-  background: $color-box-background;
-  padding: 1em;
-  border-radius: $border-radius;
-}
-
-code {
-  background: #f5f5f5;
-  padding: 0.1em 0.2em;
+  height: auto;
   border-radius: 4px;
 }
 
-.invalid-link {
-  color: #444444;
-  cursor: help;
-  background: #fafafa;
-  padding: 0 0.1em;
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  background-color: #f6f6f6;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #1a1a1a;
+  }
 }
 
-.invalid-link-brackets {
-  color: #ccc;
-  cursor: help;
+pre {
+  background-color: #f6f6f6;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #1a1a1a;
+  }
+
+  code {
+    background-color: transparent;
+    padding: 0;
+  }
 }

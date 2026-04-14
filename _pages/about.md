@@ -1,9 +1,11 @@
 ---
 layout: page
 title: About
-permalink: /about
+permalink: /about/
 ---
 
-*This is an about page.*
+This is my digital garden. It's a collection of notes, thoughts, and things I'm learning.
 
-Feel free to tell the world about what you love! 😍
+The design is inspired by [Steph Ango's site](https://stephango.com/).
+
+I'm Chocobone. I write about technology, art, and life.
