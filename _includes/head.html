@@ -57,7 +57,15 @@
     <script>
         function applyTheme(theme) {
             const isDark = theme === "dark";
-            document.body.classList.toggle("is-dark", isDark);
+
+            // Apply to both attribute and class for maximum compatibility
+            if (isDark) {
+                document.documentElement.setAttribute("data-theme", "dark");
+                document.body.classList.add("is-dark");
+            } else {
+                document.documentElement.removeAttribute("data-theme");
+                document.body.classList.remove("is-dark");
+            }
 
             // Apply is-dark class to NES.css components that need it
             document
@@ -82,8 +90,9 @@
             ).matches;
             const isDark = theme === "dark" || (!theme && prefersDark);
 
-            // Initial application during load
+            // Initial application to prevent flicker
             if (isDark) {
+                document.documentElement.setAttribute("data-theme", "dark");
                 document.documentElement.classList.add("is-dark");
             }
 
