@@ -6,7 +6,7 @@ permalink: /
 ---
 
 <section>
-  <p>I'm Chocobone, and this is my digital garden.</p>
+  <p>I'm Choco_B, and this is my digital garden.</p>
 </section>
 
 <section style="margin-top: 4rem;">
