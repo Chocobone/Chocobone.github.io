@@ -28,14 +28,32 @@
             font-style: normal;
             font-display: swap;
         }
+
+        /* Adjust English font sizes to match CJK fonts */
+        @font-face {
+            font-family: "Kongtext";
+            src: url("https://fonts.cdnfonts.com/s/14354/Kongtext-Regular.woff")
+                format("woff");
+            size-adjust: 85%;
+        }
+
+        @font-face {
+            font-family: "Press Start 2P";
+            src: url("https://fonts.gstatic.com/s/pressstart2p/v15/e3t4euO8tx-d7S7grdqfK3W_P2125_7XBrZSwvS2.woff2")
+                format("woff2");
+            unicode-range:
+                U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+                U+2212, U+2215, U+FEFF, U+FFFD;
+            size-adjust: 80%;
+        }
     </style>
 
-    <!-- Fonts: English (Headings/Content), Korean (DungGeunMo Local), Japanese (DotGothic16) -->
+    <!-- Fonts: Japanese (DotGothic16) -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DotGothic16&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap"
         rel="stylesheet"
     />
-    <link href="https://fonts.cdnfonts.com/css/kongtext" rel="stylesheet" />
 
     <link href="https://unpkg.com/nes.css/css/nes.min.css" rel="stylesheet" />
     <style>
