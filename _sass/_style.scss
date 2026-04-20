@@ -1,5 +1,12 @@
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('/assets/fonts/PressStart2P-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Typography */
-$font-family: "Kongtext", "DungGeunMo", "DotGothic16", "Nuもち", sans-serif;
+$font-family: "Press Start 2P", "Kongtext", "DungGeunMo", "DotGothic16", "Nuもち", sans-serif;
 $font-heading: "Press Start 2P", "DungGeunMo", "DotGothic16", "Nuもち", cursive;
 $font-serif: $font-family;
 
