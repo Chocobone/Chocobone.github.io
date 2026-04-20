@@ -2,6 +2,7 @@
 layout: page
 title: Home
 permalink: /
+hide_title: true
 ---
 
 <section style="margin-top: 4rem;">
