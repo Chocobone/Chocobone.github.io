@@ -2,7 +2,7 @@
 layout: note
 title: lang_font test
 permalink: /lang_font test
-created: 2026-04-20
+created: 2026-04-18
 tags:
 ---
 
