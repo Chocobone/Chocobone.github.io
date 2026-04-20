@@ -15,7 +15,7 @@ plugins:
 
 sass:
   sass_dir: _sass
-  style: :compressed
+  style: compressed
 
 collections:
   notes:
@@ -24,10 +24,10 @@ collections:
 
 defaults:
   - scope:
-      path: "**/*"
+      path: ""
     values:
       layout: "default"
   - scope:
-      path: "_notes/**/*.md"
+      path: "_notes"
     values:
       layout: "note"
