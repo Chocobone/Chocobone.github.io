@@ -40,8 +40,21 @@ permalink: /
   </div>
 
   <div id="topic-notes">
+    <!-- All Notes Group -->
+    <div class="tag-group" id="group-all" style="margin-bottom: 2rem;">
+      <ul class="note-list" style="margin-top: 1rem;">
+        {% assign all_notes = site.notes | sort: "last_modified_at" | reverse %}
+        {% for note in all_notes %}
+          <li>
+            <span class="note-date">{{ note.last_modified_at | date: "%B %d, %Y" }}</span>
+            <a class="internal-link" href="{{ site.baseurl }}{{ note.url }}">{{ note.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
     {% for tag in unique_tags %}
-      <div class="tag-group" id="group-{{ tag | slugify }}" style="margin-bottom: 2rem;">
+      <div class="tag-group" id="group-{{ tag | slugify }}" style="margin-bottom: 2rem; display: none;">
         <ul class="note-list" style="margin-top: 1rem;">
           {% assign tag_notes = site.notes | sort: "last_modified_at" | reverse %}
           {% for note in tag_notes %}
@@ -73,9 +86,7 @@ permalink: /
     // Filter groups
     const groups = document.querySelectorAll('.tag-group');
     groups.forEach(group => {
-      if (tagSlug === 'all') {
-        group.style.display = 'block';
-      } else if (group.id === 'group-' + tagSlug) {
+      if (group.id === 'group-' + tagSlug) {
         group.style.display = 'block';
       } else {
         group.style.display = 'none';
