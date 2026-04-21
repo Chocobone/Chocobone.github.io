@@ -17,32 +17,19 @@ class BidirectionalLinksGenerator < Jekyll::Generator
       # Handle Obsidian image WikiLinks ![[image.png]]
       current_note.content.gsub!(/!\[\[(.+?)(?:\|(.+?))?\]\]/i) do
         filename = $1
-        alt = $2 || filename
-        # Don't prefix if it's already an absolute path or has a protocol
-        if filename.start_with?('/') || filename.start_with?('http')
-          src = filename
-        elsif filename.start_with?('assets/images/')
-          src = "#{site.baseurl}/#{filename}"
-        else
-          src = "#{site.baseurl}/assets/images/#{filename}"
-        end
         # Encode spaces for URL
-        src = src.gsub(' ', '%20')
-        "<img src='#{src}' alt='#{alt}' style='max-width: 100%; height: auto; border: 4px solid var(--header-border);'>"
+        url_filename = filename.gsub(' ', '%20')
+        # Using the specific format requested by the user
+        "<img src='{{ site.baseurl }}/assets/images/#{url_filename}'/>"
       end
 
       # Handle standard Markdown image links that are relative and point to assets/images
       current_note.content.gsub!(/!\[(.*?)\]\((?!http|https|\/)(.+?)\)/i) do
         alt = $1
         filename = $2
-        if filename.start_with?('assets/images/')
-          src = "#{site.baseurl}/#{filename}"
-        else
-          src = "#{site.baseurl}/assets/images/#{filename}"
-        end
         # Encode spaces for URL if not already encoded
-        src = src.gsub(' ', '%20')
-        "![#{alt}](#{src})"
+        url_filename = filename.gsub(' ', '%20')
+        "![#{alt}]({{ site.baseurl }}/assets/images/#{url_filename})"
       end
 
       all_docs.each do |note_potentially_linked_to|
