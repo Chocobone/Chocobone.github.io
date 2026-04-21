@@ -14,24 +14,6 @@ class BidirectionalLinksGenerator < Jekyll::Generator
     # Convert all Wiki/Roam-style double-bracket link syntax to plain HTML
     # anchor tag elements (<a>) with "internal-link" CSS class
     all_docs.each do |current_note|
-      # Handle Obsidian image WikiLinks ![[image.png]]
-      current_note.content.gsub!(/!\[\[(.+?)(?:\|(.+?))?\]\]/i) do
-        filename = $1
-        # Encode spaces for URL
-        url_filename = filename.gsub(' ', '%20')
-        # Using the specific format requested by the user
-        "<img src='{{ site.baseurl }}/assets/images/#{url_filename}'/>"
-      end
-
-      # Handle standard Markdown image links that are relative and point to assets/images
-      current_note.content.gsub!(/!\[(.*?)\]\((?!http|https|\/)(.+?)\)/i) do
-        alt = $1
-        filename = $2
-        # Encode spaces for URL if not already encoded
-        url_filename = filename.gsub(' ', '%20')
-        "![#{alt}]({{ site.baseurl }}/assets/images/#{url_filename})"
-      end
-
       all_docs.each do |note_potentially_linked_to|
         note_title_regexp_pattern = Regexp.escape(
           File.basename(
