@@ -5,9 +5,17 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'DungGeunMo';
+  src: url('/assets/fonts/DungGeunMo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Typography */
-$font-family: "Press Start 2P", "Kongtext", "DungGeunMo", "DotGothic16", "Nuもち", sans-serif;
-$font-heading: "Press Start 2P", "DungGeunMo", "DotGothic16", "Nuもち", cursive;
+$font-family: "DungGeunMo", "Kongtext", "DotGothic16", "Nuもち", sans-serif;
+$font-heading: "DungGeunMo", "DotGothic16", "Nuもち", cursive;
+$font-press-start: "Press Start 2P", cursive;
 $font-serif: $font-family;
 
 /* Colors - Theme Variables */
@@ -115,6 +123,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+  font-family: $font-press-start;
   font-size: 2rem;
   font-weight: 700;
   margin-top: 0;
