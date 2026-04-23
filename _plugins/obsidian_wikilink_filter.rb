@@ -1,4 +1,4 @@
-Jekyll::Hooks.register [:posts, :pages], :pre_render do |post|
+Jekyll::Hooks.register [:_notes, :_pages], :pre_render do |post|
   # 이미지 Wikilink 변환: ![[image.png]] -> <img src="/assets/images/image.png">
   # 크기 조절 대응: ![[image.png|300]] -> <img src="/assets/images/image.png" width="300">
   post.content.gsub!(/!\[\[(.*?)\]\]/) do |match|
