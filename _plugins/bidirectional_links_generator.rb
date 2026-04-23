@@ -14,6 +14,31 @@ class BidirectionalLinksGenerator < Jekyll::Generator
     # Convert all Wiki/Roam-style double-bracket link syntax to plain HTML
     # anchor tag elements (<a>) with "internal-link" CSS class
     all_docs.each do |current_note|
+      # 이미지 Wikilink 변환: ![[image.png]] -> <img src="/assets/images/image.png">
+      # 크기 조절 대응: ![[image.png|300]] -> <img src="/assets/images/image.png" width="300">
+      current_note.content.gsub!(/!\[\[(.*?)\]\]/) do |match|
+        content = $1.split('|')
+        path = content[0].strip
+        extra = content[1] ? content[1].strip : nil
+
+        width = ""
+        alt = path
+
+        if extra
+          if extra =~ /^\d+$/ || extra =~ /^\d+x\d+$/
+            # If numeric (300) or 300x200, it's a width/size
+            width = " width=\"#{extra.split('x')[0]}\""
+          else
+            # Otherwise it's alt text
+            alt = extra
+          end
+        end
+
+        # URI encoding for spaces and special characters in filename
+        encoded_path = path.gsub(' ', '%20')
+        "<img src=\"#{site.baseurl}/assets/images/#{encoded_path}\"#{width} alt=\"#{alt}\">"
+      end
+
       all_docs.each do |note_potentially_linked_to|
         note_title_regexp_pattern = Regexp.escape(
           File.basename(
