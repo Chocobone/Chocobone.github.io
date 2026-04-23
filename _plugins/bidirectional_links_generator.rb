@@ -40,6 +40,9 @@ class BidirectionalLinksGenerator < Jekyll::Generator
       end
 
       all_docs.each do |note_potentially_linked_to|
+        title_from_data = note_potentially_linked_to.data['title']
+        next unless title_from_data # Skip if note has no title
+
         note_title_regexp_pattern = Regexp.escape(
           File.basename(
             note_potentially_linked_to.basename,
@@ -47,10 +50,7 @@ class BidirectionalLinksGenerator < Jekyll::Generator
           )
         ).gsub('\_', '[ _]').gsub('\-', '[ -]').capitalize
 
-        title_from_data = note_potentially_linked_to.data['title']
-        if title_from_data
-          title_from_data = Regexp.escape(title_from_data)
-        end
+        title_from_data_escaped = Regexp.escape(title_from_data)
 
         new_href = "#{site.baseurl}#{note_potentially_linked_to.url}#{link_extension}"
         anchor_tag = "<a class='internal-link' href='#{new_href}'>\\1</a>"
@@ -65,14 +65,14 @@ class BidirectionalLinksGenerator < Jekyll::Generator
         # Replace double-bracketed links with label using note filename
         # [[cats|this is a link to the note about cats]]
         current_note.content.gsub!(
-          /\[\[#{title_from_data}\|(.+?)(?=\])\]\]/i,
+          /\[\[#{title_from_data_escaped}\|(.+?)(?=\])\]\]/i,
           anchor_tag
         )
 
         # Replace double-bracketed links using note title
         # [[a note about cats]]
         current_note.content.gsub!(
-          /\[\[(#{title_from_data})\]\]/i,
+          /\[\[(#{title_from_data_escaped})\]\]/i,
           anchor_tag
         )
 
@@ -131,6 +131,7 @@ class BidirectionalLinksGenerator < Jekyll::Generator
   end
 
   def note_id_from_note(note)
-    note.data['title'].bytes.join
+    title = note.data['title'] || File.basename(note.path)
+    title.bytes.join
   end
 end
