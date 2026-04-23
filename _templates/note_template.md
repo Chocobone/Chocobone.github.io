@@ -1,8 +1,9 @@
 ---
 layout: note
-title: "<% tp.file.title %>"
+title: <% tp.file.title %>
 permalink: /<% tp.file.title %>
 created: <% tp.date.now() %>
-tags: 
+updated: <% tp.date.now() %>
+tags:
 ---
 
