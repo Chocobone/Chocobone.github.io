@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.querySelectorAll(".highlight").forEach((block) => {
+    if (block.querySelector(".copy-code-button")) return;
+
     const button = document.createElement("button");
     button.className = "nes-btn is-primary copy-code-button";
     button.type = "button";
