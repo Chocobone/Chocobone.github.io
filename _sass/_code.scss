@@ -1,13 +1,14 @@
 .highlight  {
-  background: #f8f8f8;
+  background: var(--code-bg);
   padding: 1px 1em;
   border-radius: 3px;
-  font-size: 1em;
   font-size: 0.9em;
   overflow: auto;
   margin: 1em -1em;
+  font-family: "Press Start 2P", cursive;
   code{
     padding: 0;
+    font-family: inherit;
   }
 }
 
