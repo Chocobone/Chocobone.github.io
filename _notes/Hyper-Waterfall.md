@@ -1,14 +1,14 @@
 ---
 layout: note
-title: Hyper-Waterfall
-permalink: /Hyper-Waterfall
+title: hyper-waterfall
+permalink: /hyper-waterfall
 created: 2026-04-24
-updated: 2026-04-24
+updated: 2026-04-26
 tags:
   - develop
   - think
 ---
-오픈소스 프로젝트를 둘러보다 흥미로운 내용을 발견했다. 한국 문서파일인 .hwp 에디터를 Rust와 WebAssembly로 구현한 [rhwp](https://github.com/edwardkim/rhwp)의 [Hyper-Waterfall 철학](https://github.com/edwardkim/rhwp/blob/main/mydocs/manual/hyper_waterfall.md)이다. Claude code 등의 AI 사용을 전제로 Hyperfall, 에자일 개발론의 단점을 완화하고, 소규모 개발의 완성도를 높이는 방법이다.
+오픈소스 프로젝트를 둘러보다 흥미로운 내용을 발견했다. 한국 문서파일인 .hwp 에디터를 Rust와 WebAssembly로 구현한 [rhwp](https://github.com/edwardkim/rhwp) 프로젝트의 [Hyper-Waterfall 철학](https://github.com/edwardkim/rhwp/blob/main/mydocs/manual/hyper_waterfall.md)이다. Claude code 등의 AI 사용을 전제로 Hyperfall, 에자일 개발론의 단점을 완화하고, 소규모 개발의 완성도를 높이는 방법이다.
 
 앞으로 프로젝트에 해당 방법론을 사용해 구현하고자 하여,스스로 정리한 요약 내용을 블로그에 적어놓는다.
 
